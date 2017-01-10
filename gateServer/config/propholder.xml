@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation=" 
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>config/properties/settings.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="serverInitializer" class="com.zipeiyi.game.gateServer.netty.ServerInitializer"
+		init-method="init">
+		<property name="handlerDispatcher" ref="handlerDispatcher" />
+		<property name="idCenterService" ref="idCenterService"/>
+		<property name="frequency" ref="frequency"/>
+		<property name="wsCoderService" ref="wsCoderService"/>
+        <property name="reader_idle_time" value="${beat_reader_idle_time}"/>
+        <property name="writer_idle_time" value="${beat_writer_idle_time}"/>
+        <property name="reader_and_writer_time" value="${beat_reader_and_writer_time}"/>
+	</bean>
+
+	<bean id="handlerDispatcher" class="com.zipeiyi.game.gateServer.handle.HandlerDispatcher">
+		<property name="messageExecutor">
+			<bean class="com.zipeiyi.game.gateServer.threadPool.FiexThreadPoolExecutor"
+				destroy-method="shutdown">
+				<constructor-arg value="${app.handler.pool.corePoolSize}" />
+				<constructor-arg value="${app.handler.pool.maximumPoolSize}" />
+				<constructor-arg value="${app.handler.pool.keepAliveSecond}" />
+				<constructor-arg value="${app.handler.pool.name}" />
+			</bean>
+		</property>
+		<property name="idCenterService" ref="idCenterService"/>
+		<property name="sleepTime" value="${app.handler.sleepTime}" />
+	</bean>
+
+    <bean id="idCenterService" class="com.zipeiyi.core.service.impl.IdCenterServiceImpl">
+        <constructor-arg index="0" type="long" value="1" />
+        <constructor-arg index="1" type="long" value="1" />
+    </bean>
+
+	<bean id="wsCoderService" class="com.zipeiyi.game.common.code.WSCoderService"/>
+
+    <bean id="frequency" class="com.zipeiyi.game.gateServer.service.antispam.impl.FrequencyImpl"/>
+
+</beans>

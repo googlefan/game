@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/task  
+             http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
+
+    <context:component-scan base-package="com.zipeiyi.game.login" />
+
+    <bean id="idCenterService" class="com.zipeiyi.core.service.impl.IdCenterServiceImpl">
+        <constructor-arg index="0" type="long" value="2" />
+        <constructor-arg index="1" type="long" value="2" />
+    </bean>
+
+    <bean id="uaMap" class="java.util.LinkedHashMap">
+        <constructor-arg index="0">
+            <map>
+                <!--搜索引擎爬虫,含有spider关键字的统一用 spider截取
+            <entry key="baiduspider" value="search_engine"/>
+            <entry key="iaskspider" value="search_engine"/>
+            <entry key="sogou web spider" value="search_engine"/>
+            <entry key="sogou push spider" value="search_engine"/>-->
+                <entry key="spider" value="search_engine"/>
+                <entry key="googlebot" value="search_engine"/>
+                <entry key="mediapartners-google" value="search_engine"/>
+                <entry key="yahoo!" value="search_engine"/>
+                <entry key="yodaobot" value="search_engine"/>
+                <entry key="msnbot" value="search_engine"/>
+                <entry key="gigabot" value="search_engine"/>
+                <entry key="rss.asp" value="search_engine"/>
+                <entry key="eapollobot" value="search_engine"/>
+                <entry key="lanshanbot" value="search_engine"/>
+                <entry key="tmcrawler" value="search_engine"/>
+                <entry key="webnews " value="search_engine"/>
+
+                <entry key="baidu transcoder" value="baiduTranscoder"/>
+
+                <entry key="ipad" value="mobile_ipad"/>
+
+                <entry key="ipod" value="mobile_ipod"/>
+                <entry key="iphone" value="mobile_iphone"/>
+                <entry key="ios" value="mobile_ios"/>
+
+                <entry key="windows phone 7" value="mobile_windows_phone_7"/>
+                <entry key="windowsphone 7" value="mobile_windows_phone_7"/>
+                <entry key="windowsphone7" value="mobile_windows_phone_7"/>
+                <entry key="windows phone os 7" value="mobile_windows_phone_7"/>
+                <entry key="windowsphone os 7" value="mobile_windows_phone_7"/>
+                <entry key="window phone os 7" value="mobile_windows_phone_7"/>
+                <entry key="windowphone os 7" value="mobile_windows_phone_7"/>
+                <entry key="wp7" value="mobile_windows_phone_7"/>
+
+                <entry key="windows phone" value="mobile_windows_phone"/>
+
+                <entry key="android" value="mobile_android"/>
+                <entry key="mqqbrowser" value="mqqbrowser"/>
+                <entry key="gobrowser" value="gobrowser"/>
+
+                <entry key="ucweb" value="mobile_ucweb"/>
+                <entry key="opera mobi" value="mobile_opera"/>
+                <entry key="opera mini" value="mobile_opera"/>
+                <entry key="nokia" value="nokia"/>
+                <entry key="samsung" value="samsung"/>
+                <entry key="blackberry" value="blackberry"/>
+
+                <entry key="msie" value="ie"/>
+
+                <entry key="360" value="360"/>
+                <entry key="metasr" value="sogou"/>
+                <entry key="se 1.x" value="sogou"/>
+                <entry key="se 2.x" value="sogou"/>
+                <entry key="the world" value="world"/>
+                <entry key="tencenttraveler" value="tt"/>
+                <entry key="avant" value="avant"/>
+                <entry key="qqbrowser" value="qqbrowser"/>
+                <entry key="maxthon" value="maxthon"/>
+
+                <entry key="chrome" value="chrome"/>
+                <entry key="safari" value="safari"/>
+                <entry key="opera" value="opera"/>
+                <entry key="firefox" value="firefox"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>

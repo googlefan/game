@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.zipeiyi:xpower-http:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zipeiyi/xpower-http/1.0-SNAPSHOT/xpower-http-1.0-20160826.120456-6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zipeiyi/xpower-http/1.0-SNAPSHOT/xpower-http-1.0-20160826.120456-6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zipeiyi/xpower-http/1.0-SNAPSHOT/xpower-http-1.0-20160826.120456-6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

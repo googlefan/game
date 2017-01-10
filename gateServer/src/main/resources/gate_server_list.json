@@ -1,0 +1,10 @@
+{
+    "gateServerList":[
+        {
+            "hostName":"gate1",
+            "ip":"127.0.0.1",
+            "port":8801,
+            "connect":0
+        }
+    ]
+}

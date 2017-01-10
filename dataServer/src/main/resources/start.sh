@@ -1,0 +1,1 @@
+java -Djava.ext.dirs=lib -jar dataServer.jar 8000

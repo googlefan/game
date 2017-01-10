@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--监听Card未使用数量小于100个时，取数量为n的明牌信息存储到数据库-->
+    <bean id="randomCardDbTask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 调用的类 -->
+        <property name="targetObject">
+            <ref bean="jobService"/>
+        </property>
+        <!-- 调用类中的方法 -->
+        <property name="targetMethod">
+            <value>randomCardDb</value>
+        </property>
+    </bean>
+    <!-- 每天定时更新用户已选Card的净值 -->
+    <bean id="updateUserCardRateValueTask"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="jobService"/>
+        </property>
+        <property name="targetMethod">
+            <value>updateLastRateVlaue</value>
+        </property>
+    </bean>
+    <!-- 每天晚上10点执行，监听Card未使用数量小于100个时，取数量为n的明牌信息存储到数据库 -->
+    <bean id="randomCardDbTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="randomCardDbTask"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 22 * * ?</value>
+        </property>
+    </bean>
+    <!-- 每天晚上11点执行，计算当天最新的收盘价 -->
+    <bean id="updateUserCardRateValueTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="updateUserCardRateValueTask"/>
+        </property>
+        <!-- cron表达式 -->
+        <property name="cronExpression">
+            <value>30 0 23 * * ?</value>
+        </property>
+    </bean>
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+    <bean id="startQuertz" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="updateUserCardRateValueTime"/>
+                <ref bean="randomCardDbTime"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

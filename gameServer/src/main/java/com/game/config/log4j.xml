@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="Threshold" value="ALL" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c{1}]%m%n" />
+		</layout>
+	</appender>
+	<appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+<!-- 		<param name="File" value="/data/zfInstanceLog/instanceInfo.log" /> -->
+		<param name="File" value="./logs/gameserver.log" />
+		<param name="BufferedIO" value="true" />
+        <!-- 8K为一个写单元 -->
+        <param name="BufferSize" value="8192" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="InstanceInfoAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/zfInstanceLog/instanceInfo.log" />
+		<param name="BufferedIO" value="true" />
+        <!-- 8K为一个写单元 -->
+        <param name="BufferSize" value="8192" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="RechargeAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/rechargelog/gameserver/gamerecharge.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="LoginLogAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/login/login.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="GMAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/gmlog/gmcmd.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="StackMonitorAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/stack/stack.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="MoveAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/move/move.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="OnlineCountFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/onlineCountLogs/onlineCount.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="IpFilterAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/ipfilter/blackList.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="ClientPluginAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/plugin/client.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="ServerPluginAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/plugin/server.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="MallAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/mall/buy.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="YunyingAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/yunying/reward.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 聊天日志记录,******请不要在其它地方使用这个appender******** -->
+	<appender name="ChatFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/data/zf/chatLogs/chat.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="CbgAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 这里设置日志输出的绝对路径，如果设置相对路径，日志会生成在tomcat目录的相对路径里 -->
+		<param name="File" value="/data/zf/cbg/cbg.log" />
+		<param name="Threshold" value="ALL" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS} %p][%c]%m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 异步方式 -->
+	<appender name="AsyncAppender" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+	
+	<logger name="com.game.modules.chat.ChatLogFactory" additivity="false">
+		<level value="info" />
+		<appender-ref ref="ChatFileAppender" />
+	</logger>
+	
+	<logger name="com.game.quartz.EveryOneMinuteForOnlineInfo" additivity="false">
+		<level value="info" />
+		<appender-ref ref="OnlineCountFileAppender" />
+	</logger>
+	
+	<!-- 以上为聊天日志记录配置 -->
+	<logger name="org.springframework">
+		<level value="error" />
+	</logger>
+	<logger name="org.apache">
+		<level value="error" />
+	</logger>
+	<logger name="org.eclipse.jetty">
+		<level value="error" />
+	</logger>
+	<logger name="java.sql">
+		<level value="error" />
+	</logger>
+	<logger name="org.quartz">
+		<level value="error" />
+	</logger>
+	<logger name="com.ibatis">
+		<level value="error" />
+	</logger>
+	<logger name="com.mchange">
+		<level value="info" />
+	</logger>
+
+	<!-- logger 日志输出设置开始,由于root的日志等级设置成了error,所以需要输出日志的请在这里设置等级 -->
+	<logger name="com.game.core">
+		<level value="debug" />
+	</logger>
+	<logger name="com.game.processor">
+		<level value="info" />
+	</logger>
+	<logger name="com.game.modules.buff">
+		<level value="debug" />
+	</logger>
+	<!-- 消息包  关闭日志 -->
+	<logger name="com.game.message">
+		<level value="off" />
+	</logger>
+	<!-- 状态机 error级别 -->
+	<logger name="com.game.fsm">
+		<level value="error" />
+	</logger>
+	<!-- 事件监听器 error级别 -->
+	<logger name="com.game.event">
+		<level value="error" />
+	</logger>
+	<!-- 社会关系 error级别 -->
+	<logger name="com.game.modules.role.roleSociality">
+		<level value="error" />
+	</logger>
+	<!-- 成就 error级别 -->
+	<logger name="com.game.modules.role.roleAchieve">
+		<level value="error" />
+	</logger>
+	
+	<!-- 这里是类，上面是包 -->
+	
+	<!-- 神将战斗管理器  error级别 -->
+	<logger name="com.game.server.context.ServerCacheService">
+		<level value="info" />
+	</logger>
+	<logger name="com.game.modules.role.rolePet.RoleGodPetBattleManager">
+		<level value="error" />
+	</logger>
+	<logger name="com.game.modules.mall.MallManager" additivity="false">
+		<level value="info" />
+		<appender-ref ref="MallAppender" />
+	</logger>
+	<logger name="com.game.operationActivity.YunyingManager" additivity="false">
+		<level value="info" />
+		<appender-ref ref="YunyingAppender" />
+	</logger>
+	<logger name="com.game.processor.system.ClientPluginRecord40305" additivity="false">
+		<level value="info" />
+		<appender-ref ref="ClientPluginAppender" />
+	</logger>
+	<logger name="com.game.core.support.PlugInsChecker" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="ServerPluginAppender" />
+	</logger>
+	<logger name="com.game.modules.instance.InstanceManager" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="InstanceInfoAppender" />
+	</logger>
+	<logger name="com.game.core.support.LogLogin" additivity="false">
+		<level value="info" />
+		<appender-ref ref="LoginLogAppender" />
+	</logger>
+	<logger name="com.game.server.vline.VLineThreadRunner">
+		<level value="debug" />
+	</logger>
+	<logger name="com.game.server.nio.MsgQueueHandler">
+		<level value="debug" />
+		<!--<appender-ref ref="FileAppender" />-->
+	</logger>
+	<logger name="com.game.modules.sprite.PropertyManager">
+		<level value="info" />
+	</logger>
+	<logger name="servlet.NewRechargeServlet" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="RechargeAppender" />
+	</logger>
+	<logger name="servlet.NewRechargeServletForTW" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="RechargeAppender" />
+	</logger>
+	<logger name="servlet.NewRechargeServletForMY" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="RechargeAppender" />
+	</logger>
+	<logger name="com.game.processor.common.GMCommandProcessor20000" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="GMAppender" />
+	</logger>
+	<logger name="com.game.operationGm.YuyingAdapterImpl" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="GMAppender" />
+	</logger>
+	<logger name="com.game.StackTraceMonitor" additivity="false">
+		<level value="off" />
+		<appender-ref ref="StackMonitorAppender" />
+	</logger>
+	<logger name="com.game.core.world.move.BaseMoveController" additivity="false">
+		<level value="error" />
+		<appender-ref ref="MoveAppender" />
+	</logger>
+	<logger name="com.game.core.nio.firewall.BlackList" additivity="false">
+		<level value="info" />
+		<appender-ref ref="IpFilterAppender" />
+	</logger>
+	<logger name="com.game.modules.activity.cbg.CbgActivity" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CbgAppender" />
+	</logger>
+	
+	<!-- logger 日志输出设置结束 -->
+	
+	<logger name="com.game.processor.scene.RoleMoveProcessor11105">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="com.game.modules.scene">
+		<level value="debug" />
+	</logger>
+	<logger name="com.game.fsm.monster">
+		<level value="debug" />
+	</logger>
+	<logger name="com.game.modules.role.roleFlyer.RoleFlyer">
+		<level value="info" />
+	</logger>
+	<logger name="com.game.modules.monster">
+		<level value="error" />
+	</logger>
+	<logger name="com.game.modules.role.roleQuest.RoleQuestManager">
+		<level value="off" />
+	</logger>
+	<logger name="com.game.modules.buff.BuffManager">
+		<level value="off" />
+	</logger>
+	<logger name="com.game.modules.quest.Quest">
+		<level value="off" />
+	</logger>
+	<logger name="com.game.modules.role.managers.RoleContinuedKillManager">
+		<level value="off" />
+	</logger>
+	<logger name="com.game.core.world.aoi.AOIManager">
+		<level value="off" />
+	</logger>
+	<root>
+		<level value="debug" />
+		<!-- 注:部署时,只用 FileAppender 开发时只用Console -->
+		<appender-ref ref="CONSOLE" /> 
+		<!-- <appender-ref ref="AsyncAppender" />  -->
+		<appender-ref ref="FileAppender" />
+	</root>
+</log4j:configuration>
+

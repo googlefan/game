@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataServer/dataServer.iml" filepath="$PROJECT_DIR$/dataServer/dataServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/game.iml" filepath="$PROJECT_DIR$/.idea/game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gameServer/gameServer.iml" filepath="$PROJECT_DIR$/gameServer/gameServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateServer/gateServer.iml" filepath="$PROJECT_DIR$/gateServer/gateServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginServer/loginServer.iml" filepath="$PROJECT_DIR$/loginServer/loginServer.iml" />
+    </modules>
+  </component>
+</project>
